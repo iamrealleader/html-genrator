@@ -9,8 +9,9 @@ const Features = () => {
     <div id='features' className='tool-overview m-3 md:m-10'>
       <h1 className='text-3xl font-bold '>Features</h1>
       { myfeatures.map((feature, index) => (
-        <div className="feature-table bg-slate-100 py-3 my-5 px-3 md:px-10 rounded-2xl" key={index}>
-          <h2 className='font-bold text-xl my-2'>{feature.name}</h2>
+        <div id={feature.name} className="feature-table bg-slate-100 py-3 my-5 px-3 md:px-10 rounded-2xl" key={index}>
+          <h1 className='feature_heading'>{feature.name}</h1>
+          <p className='feature_p'>{feature.description}</p>
           <table className='w-full'>
             <tbody className='w-full'>
               {Object.entries(feature.rows).map(([key, value], rowIndex) => (

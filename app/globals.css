@@ -15,10 +15,91 @@ html{
 .w1 {
     width: 1px;
   }
+  .overview_links{
+    width: 70vw !important;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow-x: scroll;
+  }
 
-@media Screen and (max-width : 500px) {
+  .top_container{
+    margin: 10px 20px;
+    width: 70%;
+    padding-top: 50px;
+  }
+  .overview_top_container{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+  }
+  .mylinks{
+    position: relative;
+    font-weight: bold;
+    font-size: larger;
+    display: flex;
+    width: 70% !important;
+    overflow-x: scroll;
+  }
+  .overview_img_container{
+    width: 20rem;
+    padding: 5rem 1rem;
+  }
+  .overview_left_img{
+    width: 100%;
+  }
+  .Overview_container{
+    width: 100%;
+  }
+
+  .overview_middle_container{
+    padding: 10px;
+  }
+  .Overview_down_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 30px;
+  }
+  .feature_heading{
+    font-weight: 700;
+    font-size: 2rem;
+    margin: 20px;
+  }
+  .feature_p{
+    margin: 10px;
+    
+  }
+
+
+@media Screen and (max-width : 750px) {
     .feature-table{
         min-width: 95vw;
         max-width : fit-content;
     }
+    .top_container{
+        margin: 10px 10px;
+        width: 100%;
+      }
+      .mylinks{
+        width: 100%;
+      }
+      .overview_img_container{
+        width: 30rem;
+        padding: 5rem 1rem;
+      }
+      .Overview_container{
+        width: 60%;
+      }
+      .overview_middle_container{
+        padding: 0px;
+      }
+      .Overview_down_container{
+        gap: 10px;
+      }
 }

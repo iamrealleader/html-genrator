@@ -104,6 +104,21 @@ const FeaturesModel = ({ setFeaturesModel }) => {
     setFeatureData(updatedData);
   };
 
+  const handleFeatureDescriptionChange = (e, featureIndex) => {
+    const { value } = e.target;
+    const updatedData = featureData.map((feature, i) => {
+      if (i === featureIndex) {
+        return {
+          ...feature,
+          description : value,
+        };
+      } else {
+        return feature;
+      }
+    });
+    setFeatureData(updatedData);
+  };
+
   const handleAddNewTable = () => {
     if (newTableName.trim() !== '') {
       const newTable = {
@@ -127,11 +142,17 @@ const FeaturesModel = ({ setFeaturesModel }) => {
       <div className="w-full flex flex-col rounded-2xl p-10">
       <h1 className='text-3xl font-bold mx-5'>Features</h1>
         {featureData.map((feature, featureIndex) => (
-          <div className="bg-slate-100 p-3 my-5 rounded-2xl w-[100%]" key={featureIndex}>
+          <div className="bg-slate-100 p-3 my-5 rounded-2xl w-full flex flex-col" key={featureIndex}>
             <input
               value={feature.name}
               onChange={(e) => handleFeatureNameChange(e, featureIndex)}
               className="font-bold text-xl my-2 px-2 py-1 rounded-lg bg-white"
+              type="text"
+            />
+            <textarea
+              value={feature.description}
+              onChange={(e) => handleFeatureDescriptionChange(e, featureIndex)}
+              className="font-bold w-full h-32 text-xl my-5 px-5 py-1 rounded-lg bg-white"
               type="text"
             />
             <table className='w-full h-fit'>
