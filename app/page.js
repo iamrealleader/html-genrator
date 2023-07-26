@@ -6,9 +6,11 @@ import { FeaturesContext, FeaturesProvider } from '@components/Context';
 import Overview from '@/components/Overview';
 import Features from '@/components/Features';
 import Details from '@components/Details';
+import Pros from '@components/Pros';
 import OverviewModel from '@components/OverviewModel';
 import FeaturesModel from '@components/FeaturesModel';
 import DetailsModel from '@components/DetailsModel';
+import ProsModel from '@components/ProsModel';
 import ReactDOMServer from 'react-dom/server';
 import FileSaver from 'file-saver';
 
@@ -18,6 +20,7 @@ const Home = () => {
   const [overviewModel, setOverviewModel] = useState(false);
   const [detailsModel, setDetailsModel] = useState(false);
   const [featuresModel, setFeaturesModel] = useState(false);
+  const [prosModel, setProsModel] = useState(false);
 
   const editOverview = () => {
     setOverviewModel(true);
@@ -29,6 +32,10 @@ const Home = () => {
 
   const editFeatures = () => {
     setFeaturesModel(true);
+  };
+
+  const editPros = () => {
+    setProsModel(true);
   };
 
   const generateHtml = () => {
@@ -46,6 +53,11 @@ const Home = () => {
     const featuresHtml = ReactDOMServer.renderToString(
       <FeaturesContext.Provider value={featuresContext}>
         <Features />
+      </FeaturesContext.Provider>
+    );
+    const prosHtml = ReactDOMServer.renderToString(
+      <FeaturesContext.Provider value={featuresContext}>
+        <Pros />
       </FeaturesContext.Provider>
     );
 
@@ -478,6 +490,135 @@ const Home = () => {
         .relative{
           position : relative;
         }
+        .w1 {
+          width: 1px;
+        }
+        .overview_links{
+          width: 70vw !important;
+          position: fixed;
+          top: 0px;
+          left: 0px;
+          width: 100%;
+          padding: 10px;
+          background-color: white;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+          overflow-x: scroll;
+          display : flex;
+        }
+
+        .top_container{
+          margin: 10px 20px;
+          width: 70%;
+          padding-top: 50px;
+        }
+        .overview_top_container{
+          display: flex;
+          justify-content: center;
+        }
+        .mylinks{
+          position: relative;
+          font-weight: bold;
+          font-size: larger;
+          display: flex;
+          width: 70% !important;
+          overflow-x: scroll;
+        }
+        .overview_img_container{
+          width: 20rem;
+          padding: 5rem 1rem;
+        }
+        .overview_left_img{
+          width: 100%;
+        }
+        .Overview_container{
+          width: 100%;
+        }
+
+        .overview_middle_container{
+          padding: 10px;
+        }
+        .Overview_down_container{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 10px;
+          gap: 30px;
+        }
+        .feature_heading{
+          font-weight: 700;
+          font-size: 2rem;
+          margin: 20px;
+        }
+        .feature_p{
+          margin: 10px;
+          
+        }
+        .pros{
+          width: 100%;
+          display : flex;
+          justify-content: center;
+        }
+      
+       .pros_h1{
+        width: 100%;
+        background-color: rgb(175, 255, 56);
+        font-size: 2rem;
+        font-weight: 900;
+        text-align: center;
+        padding: 10px;
+       }
+       .cons_h1{
+        width: 100%;
+        background-color: rgb(255, 14, 14);
+        font-size: 2rem;
+        font-weight: 900;
+        text-align: center;
+        padding: 10px;
+       }
+       
+      .pros_values , .cons_values{
+        margin: 50px 10px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        justify-content: start;
+        align-items: center;
+        font-size: 1.3rem;
+        font-weight: 500;
+        padding: 5px 20px;
+      }
+      .pros_values{
+        border: 2px solid green;
+      }
+      .cons_values{
+        border: 2px solid red;
+      }
+      
+      .pros_container , .cons_container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .pros_svg_icon , .cons_svg_icon {
+        color: green;
+        margin: 0px 3px;
+      }
+      .pros_svg_icon{
+        color: green;
+        font-size: 2rem;
+        font-weight: 900;
+      }
+      .cons_svg_icon{
+        color: red;
+        font-size: 1.5rem;
+      }
+      
+      .overview_icons{
+       font-size: 4rem;
+       margin: -5px 5px 0px 5px;
+      }
 
           @media screen and (max-width : 1000px) {
               .feature-table{
@@ -529,71 +670,17 @@ const Home = () => {
                 .Overview_down_container{
                   gap: 10px;
                 }
+                .pros{
+                  flex-direction: column;
+                  width: 90%;
+                  margin: 5px;
+                  gap: 0px;
+                }
+                .pros_values , .cons_values{
+                  padding: 5px;
+                  margin: 10px;
+                }
                           }
-
-              .w1 {
-                width: 1px;
-              }
-              .overview_links{
-                width: 70vw !important;
-                position: fixed;
-                top: 0px;
-                left: 0px;
-                width: 100%;
-                padding: 10px;
-                background-color: white;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-                overflow-x: scroll;
-                display : flex;
-              }
-
-              .top_container{
-                margin: 10px 20px;
-                width: 70%;
-                padding-top: 50px;
-              }
-              .overview_top_container{
-                display: flex;
-                justify-content: center;
-              }
-              .mylinks{
-                position: relative;
-                font-weight: bold;
-                font-size: larger;
-                display: flex;
-                width: 70% !important;
-                overflow-x: scroll;
-              }
-              .overview_img_container{
-                width: 20rem;
-                padding: 5rem 1rem;
-              }
-              .overview_left_img{
-                width: 100%;
-              }
-              .Overview_container{
-                width: 100%;
-              }
-
-              .overview_middle_container{
-                padding: 10px;
-              }
-              .Overview_down_container{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                padding: 10px;
-                gap: 30px;
-              }
-              .feature_heading{
-                font-weight: 700;
-                font-size: 2rem;
-                margin: 20px;
-              }
-              .feature_p{
-                margin: 10px;
-                
-              }
         </style>
       </head>
       <body>
@@ -602,6 +689,7 @@ const Home = () => {
         <a class='hover:text-orange-400 px-6' href="#overview">Overview</a>
         <a class='hover:text-orange-400 px-6' href="#details">Details</a>
         <a class='hover:text-orange-400 px-6' href="#features">Features</a>
+        <a class='hover:text-orange-400 px-6' href="#pros">Pro&Cons</a>
         ${myfeatures &&
           myfeatures
             .map((feature, index) => {
@@ -620,6 +708,7 @@ const Home = () => {
       </div>
             ${detailsHtml}
             ${featuresHtml}
+            ${prosHtml}
   
         <!-- Add any other custom HTML content here -->
       </body>
@@ -652,6 +741,11 @@ const Home = () => {
         <Features />
       </FeaturesContext.Provider>
     );
+    const prosHtml = ReactDOMServer.renderToString(
+      <FeaturesContext.Provider value={featuresContext}>
+        <Pros />
+      </FeaturesContext.Provider>
+    );
 
     // Combine the HTML content of the components
     const fullHtml = `
@@ -666,6 +760,7 @@ const Home = () => {
         <a class='hover:text-orange-400 px-6' href="#overview">Overview</a>
         <a class='hover:text-orange-400 px-6' href="#details">Details</a>
         <a class='hover:text-orange-400 px-6' href="#features">Features</a>
+        <a class='hover:text-orange-400 px-6' href="#pros">Pro&Cons</a>
         ${myfeatures &&
           myfeatures
             .map((feature, index) => {
@@ -685,6 +780,7 @@ const Home = () => {
             </div>
             ${detailsHtml}
             ${featuresHtml}
+            ${prosHtml}
   
       </body>
     </html>
@@ -711,6 +807,7 @@ const Home = () => {
           <a className='hover:text-orange-400 px-6' href="#overview">Overview</a>
           <a className='hover:text-orange-400 px-6' href="#details">Details</a>
           <a className='hover:text-orange-400 px-6' href="#features">Features</a>
+          <a class='hover:text-orange-400 px-6' href="#pros">Pro&Cons</a>
           {myfeatures && myfeatures.map((feature, index) => {
               return (
                 <a className='hover:text-orange-400 px-6' href={`#${feature.name}`}>{feature.name}</a>
@@ -737,9 +834,17 @@ const Home = () => {
           <div className="edits flex justify-center items-center my-2">
             <button onClick={editFeatures} id='editFeatures' className='px-10 py-2 text-lg text-white font-bold bg-yellow-400 rounded-2xl mx-10 '>Edit</button>
           </div>
+
+
+          <Pros/>
+          <div className="edits flex justify-center items-center my-2">
+            <button onClick={editPros} id='editFeatures' className='px-10 py-2 text-lg text-white font-bold bg-yellow-400 rounded-2xl mx-10 '>Edit</button>
+          </div>
+
         { overviewModel && <OverviewModel setOverviewModel={setOverviewModel}  />}
         { detailsModel && <DetailsModel setDetailsModel={setDetailsModel}  />}
         { featuresModel && <FeaturesModel setFeaturesModel={setFeaturesModel}  />}
+        { prosModel && <ProsModel setProsModel={setProsModel}  />}
       </div>
 
       {/* generate html  */}

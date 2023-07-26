@@ -1,3 +1,4 @@
+"use client"
 import React, { useState , Context, useContext } from 'react';
 import { FeaturesContext } from './Context';
 

@@ -76,6 +76,76 @@ html{
     
   }
 
+  /* more */
+  .pros{
+    width: 100%;
+    display : flex;
+    justify-content: center;
+  }
+
+ .pros_h1{
+  width: 100%;
+  background-color: rgb(175, 255, 56);
+  font-size: 2rem;
+  font-weight: 900;
+  text-align: center;
+  padding: 10px;
+ }
+ .cons_h1{
+  width: 100%;
+  background-color: rgb(255, 14, 14);
+  font-size: 2rem;
+  font-weight: 900;
+  text-align: center;
+  padding: 10px;
+ }
+ 
+.pros_values , .cons_values{
+  margin: 50px 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: start;
+  align-items: center;
+  font-size: 1.3rem;
+  font-weight: 500;
+  gap: 20px;
+  padding: 10px;
+}
+.pros_values{
+  border: 2px solid green;
+}
+.cons_values{
+  border: 2px solid red;
+}
+
+.pros_container , .cons_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pros_svg_icon , .cons_svg_icon {
+  color: green;
+  margin: 0px 3px;
+}
+.pros_svg_icon{
+  color: green;
+  font-size: 2rem;
+  font-weight: 900;
+}
+.cons_svg_icon{
+  color: red;
+  font-size: 1.5rem;
+}
+
+.overview_icons{
+ font-size: 4rem;
+ margin: -5px 5px 0px 5px;
+}
+
+
 
 @media Screen and (max-width : 750px) {
     .feature-table{
@@ -101,5 +171,17 @@ html{
       }
       .Overview_down_container{
         gap: 10px;
+      }
+
+      /* more */
+      .pros{
+        flex-direction: column;
+        width: 90%;
+        margin: 5px;
+        gap: 0px;
+      }
+      .pros_values , .cons_values{
+        padding: 5px;
+        margin: 10px;
       }
 }

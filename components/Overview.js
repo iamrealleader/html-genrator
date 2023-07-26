@@ -16,7 +16,9 @@ const Overview = () => {
                 <div className=" flex flex-wrap bg-white p-2 md:p-6 gap-10 rounded-2xl">
                     {overviewData && overviewData.data.map((data, index) => (
                         <div className="flex justify-start items-start" key={index}>
-                            <img className=' w-10 mx-2' src={data.img} alt="icon" />
+                            {/* <img className=' w-10 mx-2' src={data.img} alt="icon" /> */}
+                                {/* Use dangerouslySetInnerHTML to render the SVG */}
+                                <div className='overview_icons' dangerouslySetInnerHTML={{ __html: data.img }} />
                             <div className="details">
                                 <div className="overview-name font-bold">{data.name}</div>
                                 <div className="overview-description">{data.desc}</div>
