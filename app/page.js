@@ -693,7 +693,7 @@ const Home = () => {
         ${myfeatures &&
           myfeatures
             .map((feature, index) => {
-              return `<a class='hover:text-orange-400 px-6' href="#${feature.name}">${feature.name}</a>`;
+              return `<a key=${index} class='hover:text-orange-400 px-6' href="#${feature.name}">${feature.name}</a>`;
             })
             .join('') /* Add .join('') here to concatenate without commas */
         }
@@ -764,7 +764,7 @@ const Home = () => {
         ${myfeatures &&
           myfeatures
             .map((feature, index) => {
-              return `<a class='hover:text-orange-400 px-6' href="#${feature.name}">${feature.name}</a>`;
+              return `<a key=${index} class='hover:text-orange-400 px-6' href="#${feature.name}">${feature.name}</a>`;
             })
             .join('') /* Add .join('') here to concatenate without commas */
         }
@@ -810,7 +810,7 @@ const Home = () => {
           <a class='hover:text-orange-400 px-6' href="#pros">Pro&Cons</a>
           {myfeatures && myfeatures.map((feature, index) => {
               return (
-                <a className='hover:text-orange-400 px-6' href={`#${feature.name}`}>{feature.name}</a>
+                <a key={index} className='hover:text-orange-400 px-6' href={`#${feature.name}`}>{feature.name}</a>
                      );
             })}
         </div>
