@@ -5,10 +5,6 @@ import { FeaturesProvider } from '@components/Context'
 import { useEffect } from 'react'
 
 
-export const metadata = {
-  title: 'My html generator tool',
-  description: 'It is an Amazing tool that genrates html based on your entered data',
-}
 
 export default function RootLayout({ children }) {
 
