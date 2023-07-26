@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html{
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+}
+
+.feature-table{
+    min-width: 50rem;
+    max-width : fit-content;
+}
+
+.w1 {
+    width: 1px;
+  }
+
+@media Screen and (max-width : 500px) {
+    .feature-table{
+        min-width: 95vw;
+        max-width : fit-content;
+    }
+}
