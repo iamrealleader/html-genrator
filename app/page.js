@@ -38,7 +38,7 @@ const Home = () => {
     setProsModel(true);
   };
 
-  const generateHtml = () => {
+  const generateHtml = (e) => {
     // Render the components to static markup
     const overviewHtml = ReactDOMServer.renderToString(
       <FeaturesContext.Provider value={featuresContext}>
@@ -68,15 +68,6 @@ const Home = () => {
         <title>Generated HTML</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style> 
-        .mylinks {
-          font-weight: 600;
-          font-size: 1.125rem;
-          margin-bottom: 1rem;
-        }
-
-        .scroll-smooth {
-          scroll-behavior: smooth;
-        }
 
         .mb-16 {
           margin-bottom: 4rem;
@@ -287,10 +278,8 @@ const Home = () => {
         }
 
         .feature-table {
-          min-width: 50rem;
-          max-width: fit-content;
+          width: 100%;
           background-color: #f0f4f8;
-          padding: 1.875rem 2.5rem;
           border-radius: 1rem;
         }
 
@@ -460,15 +449,6 @@ const Home = () => {
           margin: 2rem;
         }
 
-        /* Additional styles for links */
-        a {
-          color: #000;
-          text-decoration: none;
-        }
-
-        a:hover {
-          color: #f97316;
-        }
 
         .justify-center{
           justify-content: center;
@@ -493,35 +473,13 @@ const Home = () => {
         .w1 {
           width: 1px;
         }
-        .overview_links{
-          width: 70vw !important;
-          position: fixed;
-          top: 0px;
-          left: 0px;
-          width: 100%;
-          padding: 10px;
-          background-color: white;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-          overflow-x: scroll;
-          display : flex;
-        }
 
         .top_container{
-          margin: 10px 20px;
-          width: 70%;
-          padding-top: 50px;
+          width: 80%;
         }
         .overview_top_container{
           display: flex;
           justify-content: center;
-        }
-        .mylinks{
-          position: relative;
-          font-weight: bold;
-          font-size: larger;
-          display: flex;
-          width: 70% !important;
-          overflow-x: scroll;
         }
         .overview_img_container{
           width: 20rem;
@@ -619,12 +577,33 @@ const Home = () => {
        font-size: 4rem;
        margin: -5px 5px 0px 5px;
       }
+      .overview_name{
+        font-weight: 100;
+        font-size: 14px;
+      }
+      .overview_description{
+        font-weight: 900;
+        font-size: 16px;
+      }
+      .overview_line{
+        width: 1px;
+        height: 40px;
+        margin: 0px 20px;
+        background-color: black;
+      }
+      .m-1{
+        margin: 3px;
+      }
+      .Overview_top_heading{
+        font-size: 2rem;
+        font-weight: 900;
+        padding: 0px 10px;
+      }
 
           @media screen and (max-width : 1000px) {
               .feature-table{
                   min-width: 95%;
                   max-width : fit-content;
-                  padding: 15px;
               }
               .overview-img-top{
                 flex-direction: column;
@@ -637,9 +616,6 @@ const Home = () => {
                 width: 100vw;
                 height: fit-content;
               }
-              .overview-links{
-                padding: 10px 0px !important;
-              }
               .tool-overview{
                 margin: 2px !important;
               }
@@ -651,10 +627,6 @@ const Home = () => {
                 padding: 10px;
               }
               .top_container{
-                  margin: 10px 10px;
-                  width: 100%;
-                }
-                .mylinks{
                   width: 100%;
                 }
                 .overview_img_container{
@@ -668,37 +640,31 @@ const Home = () => {
                   padding: 0px;
                 }
                 .Overview_down_container{
-                  gap: 10px;
+                  padding: 0px 10px;
                 }
                 .pros{
                   flex-direction: column;
                   width: 90%;
-                  margin: 5px;
                   gap: 0px;
                 }
                 .pros_values , .cons_values{
                   padding: 5px;
                   margin: 10px;
                 }
+                .overview_icons{
+                  font-size: 2rem;
+                  margin: -5px 5px 0px 5px;
+                 }
+                 .overview_line{
+                  margin: 0px 10px;
+                }
+                .Overview_top_heading{
+                  font-size: 16px;
+                }
                           }
         </style>
       </head>
       <body>
-      <div class="mylinks">
-      <div class="overview_links">
-        <a class='hover:text-orange-400 px-6' href="#overview">Overview</a>
-        <a class='hover:text-orange-400 px-6' href="#details">Details</a>
-        <a class='hover:text-orange-400 px-6' href="#features">Features</a>
-        <a class='hover:text-orange-400 px-6' href="#pros">Pro&Cons</a>
-        ${myfeatures &&
-          myfeatures
-            .map((feature, index) => {
-              return `<a key=${index} class='hover:text-orange-400 px-6' href="#${feature.name}">${feature.name}</a>`;
-            })
-            .join('') /* Add .join('') here to concatenate without commas */
-        }
-      </div>
-    </div>
     <div class='top_container'>
       <div class="overview_top_container">
           <div class="overview_img_container">
@@ -709,7 +675,7 @@ const Home = () => {
             ${detailsHtml}
             ${featuresHtml}
             ${prosHtml}
-  
+   </div>
         <!-- Add any other custom HTML content here -->
       </body>
     </html>
@@ -721,10 +687,14 @@ const Home = () => {
 
     // Use FileSaver.js to save the generated HTML as a file
     FileSaver.saveAs(blob, 'generated_html.html');
+    e.target.innerHTML = "Done";
+      setTimeout(() => {
+        e.target.innerHTML = "Generate Html";
+      }, 3000);
   };
 
   
-  const copyHtml = () => {
+  const copyHtml = (e) => {
     // Render the components to static markup
     const overviewHtml = ReactDOMServer.renderToString(
       <FeaturesContext.Provider value={featuresContext}>
@@ -755,21 +725,6 @@ const Home = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
       </head>
       <body>
-      <div class="mylinks">
-      <div class="overview_links">
-        <a class='hover:text-orange-400 px-6' href="#overview">Overview</a>
-        <a class='hover:text-orange-400 px-6' href="#details">Details</a>
-        <a class='hover:text-orange-400 px-6' href="#features">Features</a>
-        <a class='hover:text-orange-400 px-6' href="#pros">Pro&Cons</a>
-        ${myfeatures &&
-          myfeatures
-            .map((feature, index) => {
-              return `<a key=${index} class='hover:text-orange-400 px-6' href="#${feature.name}">${feature.name}</a>`;
-            })
-            .join('') /* Add .join('') here to concatenate without commas */
-        }
-      </div>
-    </div>
     <div class='top_container'>
       <div class="overview_top_container">
           <div class="overview_img_container">
@@ -781,7 +736,7 @@ const Home = () => {
             ${detailsHtml}
             ${featuresHtml}
             ${prosHtml}
-  
+    </div>
       </body>
     </html>
   `;
@@ -798,23 +753,166 @@ const Home = () => {
 
   // Remove the temporary textarea element
   document.body.removeChild(tempTextArea);
+  e.target.innerHTML = "Done";
+      setTimeout(() => {
+        e.target.innerHTML = "Copy Html";
+      }, 3000);
   };
+
+
+  const copyOverviewHtml = (e) => {
+    // Render the components to static markup
+    const overviewHtml = ReactDOMServer.renderToString(
+      <FeaturesContext.Provider value={featuresContext}>
+        <Overview />
+      </FeaturesContext.Provider>
+    );
+   
+
+    // Combine the HTML content of the components
+    const fullHtml = `
+    <html>
+      <head>
+        <title>Generated HTML</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      </head>
+      <body>
+    <div class='top_container'>
+      <div class="overview_top_container">
+          <div class="overview_img_container">
+              <img class='overview_left_img' src=${featuresContext.overviewData.image} alt="Mobile picture" />
+          </div>
+            ${overviewHtml}
+      </div>
+    </div>
+      </body>
+    </html>
+  `;
+
+  const tempTextArea = document.createElement('textarea');
+  tempTextArea.value = fullHtml;
+  document.body.appendChild(tempTextArea);
+
+  // Copy the content from the textarea to the clipboard
+  tempTextArea.select();
+  document.execCommand('copy');
+
+  // Remove the temporary textarea element
+  document.body.removeChild(tempTextArea);
+  e.target.innerHTML = "Done";
+      setTimeout(() => {
+        e.target.innerHTML = "Copy Html";
+      }, 3000);
+  };
+
+  const copyDetailsHtml = (e) => {
+    const detailsHtml = ReactDOMServer.renderToString(
+      <FeaturesContext.Provider value={featuresContext}>
+        <Details />
+      </FeaturesContext.Provider>
+    );
+    
+    const fullHtml = `
+    <html>
+      <head>
+        <title>Generated HTML</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      </head>
+      <body>
+    <div class='top_container'>
+            ${detailsHtml}
+      </div>
+      </body>
+    </html>
+  `;
+  const tempTextArea = document.createElement('textarea');
+  tempTextArea.value = fullHtml;
+  document.body.appendChild(tempTextArea);
+
+  // Copy the content from the textarea to the clipboard
+  tempTextArea.select();
+  document.execCommand('copy');
+
+  // Remove the temporary textarea element
+  document.body.removeChild(tempTextArea);
+  e.target.innerHTML = "Done";
+      setTimeout(() => {
+        e.target.innerHTML = "Copy Html";
+      }, 3000);
+  }
+  const copyFeaturesHtml = (e) => {
+    const featuresHtml = ReactDOMServer.renderToString(
+      <FeaturesContext.Provider value={featuresContext}>
+        <Features />
+      </FeaturesContext.Provider>
+    );
+    const fullHtml = `
+    <html>
+      <head>
+        <title>Generated HTML</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      </head>
+      <body>
+    <div class='top_container'>
+            ${featuresHtml}
+      </div>
+      </body>
+    </html>
+  `;
+  const tempTextArea = document.createElement('textarea');
+  tempTextArea.value = fullHtml;
+  document.body.appendChild(tempTextArea);
+
+  // Copy the content from the textarea to the clipboard
+  tempTextArea.select();
+  document.execCommand('copy');
+
+  // Remove the temporary textarea element
+  document.body.removeChild(tempTextArea);
+  e.target.innerHTML = "Done";
+      setTimeout(() => {
+        e.target.innerHTML = "Copy Html";
+      }, 3000);
+  }
+
+  const copyProsHtml = (e) => {
+    const prosHtml = ReactDOMServer.renderToString(
+      <FeaturesContext.Provider value={featuresContext}>
+        <Pros />
+      </FeaturesContext.Provider>
+    );
+
+    const fullHtml = `
+    <html>
+      <head>
+        <title>Generated HTML</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      </head>
+      <body>
+    <div class='top_container'>
+            ${prosHtml}
+      </div>
+      </body>
+    </html>
+  `;
+  const tempTextArea = document.createElement('textarea');
+  tempTextArea.value = fullHtml;
+  document.body.appendChild(tempTextArea);
+
+  // Copy the content from the textarea to the clipboard
+  tempTextArea.select();
+  document.execCommand('copy');
+
+  // Remove the temporary textarea element
+  document.body.removeChild(tempTextArea);
+  e.target.innerHTML = "Done";
+      setTimeout(() => {
+        e.target.innerHTML = "Copy Html";
+      }, 3000);
+  }
 
   return (
     <>
-      <div className="mylinks">
-        <div className="overview_links">
-          <a className='hover:text-orange-400 px-6' href="#overview">Overview</a>
-          <a className='hover:text-orange-400 px-6' href="#details">Details</a>
-          <a className='hover:text-orange-400 px-6' href="#features">Features</a>
-          <a class='hover:text-orange-400 px-6' href="#pros">Pro&Cons</a>
-          {myfeatures && myfeatures.map((feature, index) => {
-              return (
-                <a key={index} className='hover:text-orange-400 px-6' href={`#${feature.name}`}>{feature.name}</a>
-                     );
-            })}
-        </div>
-      </div>
       <div className='top_container'>
         <div className="overview_top_container">
             <div className="overview_img_container">
@@ -822,23 +920,45 @@ const Home = () => {
             </div>
             <Overview/>
           </div>
-          <div className="edits flex justify-center items-center my-2">
-            <button onClick={editOverview} id='editOverview' className='px-10 py-2 text-lg text-white font-bold bg-yellow-400 rounded-2xl mx-10 '>Edit</button>
+          <div className="flex  justify-center items-center">
+            <div className="edits flex justify-center items-center my-2">
+              <button onClick={editOverview} id='editOverview' className='px-10 py-2 text-lg text-white font-bold bg-yellow-400 rounded-2xl mx-10 '>Edit</button>
+            </div>
+            <div className="edits flex justify-center items-center my-2">
+              <button onClick={copyOverviewHtml} id='editOverview' className='px-10 py-2 text-lg text-white font-bold bg-blue-400 rounded-2xl mx-10 '>Copy html</button>
+            </div>   
           </div>
+
           <Details/>
-          <div className="edits flex justify-center items-center my-2">
-            <button onClick={editDetails} id='editDetils' className='px-10 py-2 text-lg text-white font-bold bg-yellow-400 rounded-2xl mx-10 '>Edit</button>
+          <div className="flex  justify-center items-center">
+            <div className="edits flex justify-center items-center my-2">
+              <button onClick={editDetails} id='editDetils' className='px-10 py-2 text-lg text-white font-bold bg-yellow-400 rounded-2xl mx-10 '>Edit</button>
+            </div>
+            <div className="edits flex justify-center items-center my-2">
+              <button onClick={copyDetailsHtml} id='editOverview' className='px-10 py-2 text-lg text-white font-bold bg-blue-400 rounded-2xl mx-10 '>Copy html</button>
+            </div>   
           </div>
 
           <Features/>
-          <div className="edits flex justify-center items-center my-2">
-            <button onClick={editFeatures} id='editFeatures' className='px-10 py-2 text-lg text-white font-bold bg-yellow-400 rounded-2xl mx-10 '>Edit</button>
+          <div className="flex  justify-center items-center">
+            <div className="edits flex justify-center items-center my-2">
+              <button onClick={editFeatures} id='editFeatures' className='px-10 py-2 text-lg text-white font-bold bg-yellow-400 rounded-2xl mx-10 '>Edit</button>
+            </div>
+            <div className="edits flex justify-center items-center my-2">
+              <button onClick={copyFeaturesHtml} id='editOverview' className='px-10 py-2 text-lg text-white font-bold bg-blue-400 rounded-2xl mx-10 '>Copy html</button>
+            </div>   
           </div>
 
 
           <Pros/>
-          <div className="edits flex justify-center items-center my-2">
-            <button onClick={editPros} id='editFeatures' className='px-10 py-2 text-lg text-white font-bold bg-yellow-400 rounded-2xl mx-10 '>Edit</button>
+         
+          <div className="flex  justify-center items-center">
+            <div className="edits flex justify-center items-center my-2">
+              <button onClick={editPros} id='editFeatures' className='px-10 py-2 text-lg text-white font-bold bg-yellow-400 rounded-2xl mx-10 '>Edit</button>
+            </div>
+            <div className="edits flex justify-center items-center my-2">
+              <button onClick={copyProsHtml} id='editOverview' className='px-10 py-2 text-lg text-white font-bold bg-blue-400 rounded-2xl mx-10 '>Copy html</button>
+            </div>   
           </div>
 
         { overviewModel && <OverviewModel setOverviewModel={setOverviewModel}  />}

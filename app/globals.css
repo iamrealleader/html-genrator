@@ -2,49 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-html{
-    scroll-behavior: smooth;
-    scroll-padding-top: 6rem;
-}
 
 .feature-table{
-    min-width: 50rem;
-    max-width : fit-content;
+    width: 100%;
 }
 
 .w1 {
     width: 1px;
   }
-  .overview_links{
-    width: 70vw !important;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    padding: 10px;
-    background-color: white;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    overflow-x: scroll;
-  }
+
 
   .top_container{
-    margin: 10px 20px;
-    width: 70%;
-    padding-top: 50px;
+    width: 80%;
   }
   .overview_top_container{
     display: flex;
     justify-content: center;
     /* align-items: center; */
   }
-  .mylinks{
-    position: relative;
-    font-weight: bold;
-    font-size: larger;
-    display: flex;
-    width: 70% !important;
-    overflow-x: scroll;
-  }
+
   .overview_img_container{
     width: 20rem;
     padding: 5rem 1rem;
@@ -64,7 +40,7 @@ html{
     justify-content: center;
     align-items: center;
     padding: 10px;
-    gap: 30px;
+    padding:20px;
   }
   .feature_heading{
     font-weight: 700;
@@ -76,7 +52,6 @@ html{
     
   }
 
-  /* more */
   .pros{
     width: 100%;
     display : flex;
@@ -146,6 +121,33 @@ html{
 }
 
 
+.overview_name{
+  font-weight: 100;
+  font-size: 14px;
+}
+.overview_description{
+  font-weight: 900;
+  font-size: 16px;
+}
+
+
+
+.overview_line{
+  width: 1px;
+  height: 40px;
+  margin: 0px 20px;
+  background-color: black;
+}
+
+.Overview_top_heading{
+  font-size: 2rem;
+  font-weight: 900;
+  padding: 0px 10px;
+}
+
+/* more  */
+
+
 
 @media Screen and (max-width : 750px) {
     .feature-table{
@@ -153,12 +155,9 @@ html{
         max-width : fit-content;
     }
     .top_container{
-        margin: 10px 10px;
         width: 100%;
       }
-      .mylinks{
-        width: 100%;
-      }
+     
       .overview_img_container{
         width: 30rem;
         padding: 5rem 1rem;
@@ -170,18 +169,25 @@ html{
         padding: 0px;
       }
       .Overview_down_container{
-        gap: 10px;
+       padding:10px;
       }
-
-      /* more */
       .pros{
         flex-direction: column;
         width: 90%;
-        margin: 5px;
         gap: 0px;
       }
       .pros_values , .cons_values{
         padding: 5px;
         margin: 10px;
+      }
+      .overview_icons{
+        font-size: 2rem;
+        margin: -5px 5px 0px 5px;
+       }
+       .overview_line{
+        margin: 0px 10px;
+      }
+      .Overview_top_heading{
+        font-size: 16px;
       }
 }
