@@ -18,30 +18,29 @@
   .overview_top_container{
     display: flex;
     justify-content: center;
-    /* align-items: center; */
+    border: 3px solid black;
+    margin: 5px;
+    padding: 10px;
   }
 
   .overview_img_container{
     width: 20rem;
-    padding: 5rem 1rem;
+    padding: 1rem;
   }
   .overview_left_img{
     width: 100%;
   }
   .Overview_container{
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .overview_middle_container{
     padding: 10px;
   }
-  .Overview_down_container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    padding:20px;
-  }
+
   .feature_heading{
     font-weight: 700;
     font-size: 2rem;
@@ -117,7 +116,7 @@
 
 .overview_icons{
  font-size: 4rem;
- margin: -5px 5px 0px 5px;
+ margin: 5px 5px 0px 5px;
 }
 
 
@@ -140,14 +139,37 @@
 }
 
 .Overview_top_heading{
+  width: fit-content;
   font-size: 2rem;
   font-weight: 900;
   padding: 0px 10px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  margin: 5px 0px;
 }
 
 /* more  */
+.overview_main_conatiner{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  background-color: white;
+  padding: 15px;
+}
 
-
+.Overview_line_container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.overview_bottom_line{
+  width: 100%;
+  height: 1px;
+  background-color: rgb(200, 194, 194);
+  margin: 10px 0px;
+}
 
 @media Screen and (max-width : 750px) {
     .feature-table{
@@ -159,17 +181,14 @@
       }
      
       .overview_img_container{
-        width: 30rem;
-        padding: 5rem 1rem;
+        width: 10rem;
+        padding: 0.5rem;
       }
       .Overview_container{
         width: 60%;
       }
       .overview_middle_container{
         padding: 0px;
-      }
-      .Overview_down_container{
-       padding:10px;
       }
       .pros{
         flex-direction: column;
@@ -182,12 +201,16 @@
       }
       .overview_icons{
         font-size: 2rem;
-        margin: -5px 5px 0px 5px;
+        margin: 5px 5px 0px 5px;
        }
        .overview_line{
         margin: 0px 10px;
       }
       .Overview_top_heading{
-        font-size: 16px;
+        font-size: 1.5rem;
+      }
+      .overview_main_conatiner{
+        gap: 5px;
+        padding: 5px;
       }
 }

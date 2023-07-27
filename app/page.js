@@ -480,10 +480,13 @@ const Home = () => {
         .overview_top_container{
           display: flex;
           justify-content: center;
+          border: 3px solid black;
+          margin: 5px;
+          padding: 10px;
         }
         .overview_img_container{
           width: 20rem;
-          padding: 5rem 1rem;
+          padding: 1rem;
         }
         .overview_left_img{
           width: 100%;
@@ -494,13 +497,6 @@ const Home = () => {
 
         .overview_middle_container{
           padding: 10px;
-        }
-        .Overview_down_container{
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          padding: 10px;
-          gap: 30px;
         }
         .feature_heading{
           font-weight: 700;
@@ -574,9 +570,9 @@ const Home = () => {
       }
       
       .overview_icons{
-       font-size: 4rem;
-       margin: -5px 5px 0px 5px;
-      }
+        font-size: 4rem;
+        margin: 5px 5px 0px 5px;
+       }
       .overview_name{
         font-weight: 100;
         font-size: 14px;
@@ -595,9 +591,33 @@ const Home = () => {
         margin: 3px;
       }
       .Overview_top_heading{
+        width: fit-content;
         font-size: 2rem;
         font-weight: 900;
         padding: 0px 10px;
+        background-color: black;
+        color: white;
+        text-align: center;
+        margin: 5px 0px;
+      }
+      .Overview_line_container{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .overview_bottom_line{
+        width: 100%;
+        height: 1px;
+        background-color: rgb(200, 194, 194);
+        margin: 10px 0px;
+      }
+      .overview_main_conatiner{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        background-color: white;
+        padding: 15px;
       }
 
           @media screen and (max-width : 1000px) {
@@ -630,17 +650,14 @@ const Home = () => {
                   width: 100%;
                 }
                 .overview_img_container{
-                  width: 30rem;
-                  padding: 5rem 1rem;
+                  width: 10rem;
+                  padding: 0.5rem;
                 }
                 .Overview_container{
                   width: 60%;
                 }
                 .overview_middle_container{
                   padding: 0px;
-                }
-                .Overview_down_container{
-                  padding: 0px 10px;
                 }
                 .pros{
                   flex-direction: column;
@@ -653,13 +670,17 @@ const Home = () => {
                 }
                 .overview_icons{
                   font-size: 2rem;
-                  margin: -5px 5px 0px 5px;
+                  margin: 5px 5px 0px 5px;
                  }
                  .overview_line{
                   margin: 0px 10px;
                 }
                 .Overview_top_heading{
-                  font-size: 16px;
+                  font-size: 1.5rem;
+                }
+                .overview_main_conatiner{
+                  gap: 5px;
+                  padding: 5px;
                 }
                           }
         </style>
@@ -919,7 +940,7 @@ const Home = () => {
                 <img className='overview_left_img' src={featuresContext.overviewData.image} alt="Mobile picture" />
             </div>
             <Overview/>
-          </div>
+        </div>
           <div className="flex  justify-center items-center">
             <div className="edits flex justify-center items-center my-2">
               <button onClick={editOverview} id='editOverview' className='px-10 py-2 text-lg text-white font-bold bg-yellow-400 rounded-2xl mx-10 '>Edit</button>
