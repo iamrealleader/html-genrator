@@ -9,9 +9,11 @@ const FeaturesProvider = ({ children }) => {
     const [myfeatures, setMyFeatures] = useState(features);
     const [pros , setPros] = useState(prosData);
     const [cons , setCons] = useState(consData);
+    const [buy , setBuy] = useState(buyData);
+    const [mobiles , setMobiles] = useState(MobilesData);
 
   return (
-    <FeaturesContext.Provider value={{ overviewData, setOverviewData , detailsData , setDetailsData , myfeatures , setMyFeatures , pros , setPros , cons , setCons }}>
+    <FeaturesContext.Provider value={{ overviewData, setOverviewData , detailsData , setDetailsData , myfeatures , setMyFeatures , pros , setPros , cons , setCons , buy , setBuy , mobiles , setMobiles }}>
       {children}
     </FeaturesContext.Provider>
   );
@@ -21,7 +23,11 @@ export { FeaturesContext, FeaturesProvider };
 
 
 const overview = {
-    image : 'https://i.gadgets360cdn.com/products/large/lava-agni-2-5g-lava-db-680x800-1684220775.jpg?downsize=*:180',
+    image : {
+      link : 'https://i.gadgets360cdn.com/products/large/lava-agni-2-5g-lava-db-680x800-1684220775.jpg?downsize=*:180',
+      alt : "my mobile",
+      title : "my image"  
+    },
     data : [ 
         {
             img : ` <svg
@@ -122,9 +128,6 @@ const overview = {
             desc : "Android 13"
         } 
     ],
-    
-    status : "Released",
-    date : "16th May 2023"
 }
 
 const objectDetais = {
@@ -214,12 +217,54 @@ const prosData = [
     "Good battery timing ",
     "Good Camera Result ",
     "Good battery timing "
-]
+  ]
 
 const consData = [
     "Bad battery timing ",
     "Bad Camera Result ",
     "Bad battery timing ",
+  ]
+
+const buyData = [
+  {
+    image : "https://i.gadgets360cdn.com/products/large/lava-agni-2-5g-lava-db-680x800-1684220775.jpg?downsize=*:180",
+    desc : "adsls dkasdi asdkasjdoi asd",
+    StoreImage : "https://pngimg.com/uploads/amazon/amazon_PNG24.png",
+    link : "no link"
+  },
+  {
+    image : "https://i.gadgets360cdn.com/products/large/lava-agni-2-5g-lava-db-680x800-1684220775.jpg?downsize=*:180",
+    desc : "adsls dkasdi asdkasjdoi asd sadasd asd as",
+    StoreImage : "https://pngimg.com/uploads/amazon/amazon_PNG24.png",
+    link : "no link"
+  }
 ]
+
+const MobilesData = {
+  heading : "Top 5 mobiles",
+  mobiles : [
+      {
+      name : "Samsung",
+      image : "https://i.gadgets360cdn.com/products/large/lava-agni-2-5g-lava-db-680x800-1684220775.jpg?downsize=*:180",
+      points : [
+        "it is good mobile",
+        "it is really good mobile",
+        "it is really really good mobile",
+        "it is really really really good mobile",
+      ]
+    },
+    {
+      name : "Iphone",
+      image : "https://i.gadgets360cdn.com/products/large/lava-agni-2-5g-lava-db-680x800-1684220775.jpg?downsize=*:180",
+      points : [
+        "it is good mobile",
+        "it is really good mobile",
+        "it is really really good mobile",
+        "it is really really really good mobile",
+      ]
+    }
+]
+}
+
 
 

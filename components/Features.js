@@ -10,9 +10,11 @@ const Features = () => {
       <h1 className='text-3xl font-bold '>Features</h1>
       { myfeatures.map((feature, index) => (
         <div id={feature.name} className="feature-table bg-slate-100 py-3 my-5 px-3 md:px-10 rounded-2xl" key={index}>
-          <h1 className='feature_heading'>{feature.name}</h1>
           <p className='feature_p'>{feature.description}</p>
           <table className='w-full'>
+            <thead className='feature_heading' >
+              <tr><th colspan="2">{feature.name}</th></tr>
+            </thead>
             <tbody className='w-full'>
               {Object.entries(feature.rows).map(([key, value], rowIndex) => (
                 <tr className={rowIndex % 2 === 0 ? 'bg-white w-full' : ''} key={rowIndex}>

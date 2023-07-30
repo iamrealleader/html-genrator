@@ -4,17 +4,17 @@ import { FeaturesContext } from './Context';
 
 const OverviewModel = ({ setOverviewModel }) => {
   const { overviewData , setOverviewData } = useContext(FeaturesContext);
-  const [image, setImage] = useState(overviewData.image);
+  const [image, setImage] = useState(overviewData.image.link);
+  const [alt, setAlt] = useState(overviewData.image.alt);
+  const [title, setTitle] = useState(overviewData.image.title);
   const [mydata, setMydata] = useState(overviewData.data);
-  const [status, setStatus] = useState(overviewData.status);
-  const [date, setDate] = useState(overviewData.date);
 
   const closeModel = () => {
     setOverviewModel(false);
   };
 
   const saveData = () => {
-    setOverviewData({image,data : mydata , status , date });
+    setOverviewData({image : { link : image , alt , title },data : mydata});
     console.log(overviewData);
     setOverviewModel(false);
   };
@@ -41,12 +41,34 @@ const OverviewModel = ({ setOverviewModel }) => {
     <div className="model bg-slate-100 h-full w-full py-10 fixed top-0 backdrop-blur-3xl overflow-y-scroll">
       <div className="flex flex-col  rounded-2xl p-10">
         <div className="flex flex-wrap bg-slate-300 p-6 gap-10 rounded-2xl">
-          <div className="inputs flex flex-col w-[70%] mx-auto my-10">
+          <div className="inputs flex flex-col w-[70%] mx-auto mt-10">
                   <label className='font-bold text-lg' htmlFor={`Image`}>Paste Image link here</label>
                   <input
                     value={image}
                     onChange={(e) => setImage(e.target.value)}
                     name="img"
+                    id={`Image`}
+                    className="w-full px-2 py-3 my-2 rounded-lg bg-white"
+                    type="text"
+                  />
+          </div>
+          <div className="inputs flex flex-col w-[70%] mx-auto">
+                  <label className='font-bold text-lg' htmlFor={`Image`}>Paste Image Alt here</label>
+                  <input
+                    value={alt}
+                    onChange={(e) => setAlt(e.target.value)}
+                    name="alt"
+                    id={`Image`}
+                    className="w-full px-2 py-3 my-2 rounded-lg bg-white"
+                    type="text"
+                  />
+          </div>
+          <div className="inputs flex flex-col w-[70%] mx-auto">
+                  <label className='font-bold text-lg' htmlFor={`Image`}>Paste Image Title here</label>
+                  <input
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    name="title"
                     id={`Image`}
                     className="w-full px-2 py-3 my-2 rounded-lg bg-white"
                     type="text"
@@ -102,35 +124,6 @@ const OverviewModel = ({ setOverviewModel }) => {
           >
             Add New Feature
           </button>
-        </div>
-        <div className="flex justify-center items-center p-5">
-          <div className="staus">
-            <div className="inputs flex flex-col w-[70%]">
-              <label className='font-bold text-lg' htmlFor="status">Market Status</label>
-              <input
-                value={status}
-                onChange={(e) => setStatus(e.target.value)}
-                name="status"
-                id="status"
-                className="w-72 px-2 py-3 my-2 rounded-lg bg-white"
-                type="text"
-              />
-            </div>
-          </div>
-          <div className="w-[1px] h-10 bg-slate-400 mx-16"></div>
-          <div className="release-date">
-            <div className="inputs flex flex-col w-[70%]">
-              <label className='font-bold text-lg' htmlFor="date">Release Date</label>
-              <input
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-                name="date"
-                id="date"
-                className="w-72 px-2 py-3 my-2 rounded-lg bg-white"
-                type="text"
-              />
-            </div>
-          </div>
         </div>
       </div>
       <div className="edits flex justify-center items-center">

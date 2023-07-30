@@ -13,6 +13,10 @@ import DetailsModel from '@components/DetailsModel';
 import ProsModel from '@components/ProsModel';
 import ReactDOMServer from 'react-dom/server';
 import FileSaver from 'file-saver';
+import BuyModel from '@components/BuyModel';
+import TopMobilesModel from '@components/TopMobilesModel';
+import Buy from '@components/Buy';
+import TopMobiles from '@components/TopMobiles';
 
 const Home = () => {
   const featuresContext = useContext(FeaturesContext);
@@ -21,6 +25,9 @@ const Home = () => {
   const [detailsModel, setDetailsModel] = useState(false);
   const [featuresModel, setFeaturesModel] = useState(false);
   const [prosModel, setProsModel] = useState(false);
+  const [buyModel, setBuyModel] = useState(false);
+  const [mobilesModel, setMobileModel] = useState(false);
+
 
   const editOverview = () => {
     setOverviewModel(true);
@@ -36,6 +43,12 @@ const Home = () => {
 
   const editPros = () => {
     setProsModel(true);
+  };
+  const editBuy = () => {
+    setBuyModel(true);
+  };
+  const editMobiles = () => {
+    setMobileModel(true);
   };
 
   const generateHtml = (e) => {
@@ -58,6 +71,16 @@ const Home = () => {
     const prosHtml = ReactDOMServer.renderToString(
       <FeaturesContext.Provider value={featuresContext}>
         <Pros />
+      </FeaturesContext.Provider>
+    );
+    const buyHtml = ReactDOMServer.renderToString(
+      <FeaturesContext.Provider value={featuresContext}>
+        <Buy />
+      </FeaturesContext.Provider>
+    );
+    const mobilesHtml = ReactDOMServer.renderToString(
+      <FeaturesContext.Provider value={featuresContext}>
+        <TopMobiles />
       </FeaturesContext.Provider>
     );
 
@@ -475,12 +498,12 @@ const Home = () => {
         }
 
         .top_container{
-          width: 80%;
+          width: 100%;
         }
         .overview_top_container{
           display: flex;
           justify-content: center;
-          border: 3px solid black;
+          border-bottom: 2px dotted rgb(202, 199, 199);
           margin: 5px;
           padding: 10px;
         }
@@ -570,17 +593,17 @@ const Home = () => {
       }
       
       .overview_icons{
-        font-size: 4rem;
+        font-size: 1.7rem;
         margin: 5px 5px 0px 5px;
        }
-      .overview_name{
-        font-weight: 100;
-        font-size: 14px;
-      }
-      .overview_description{
-        font-weight: 900;
-        font-size: 16px;
-      }
+       .overview_name{
+         font-weight: 100;
+         font-size: 12px;
+       }
+       .overview_description{
+         font-weight: 900;
+         font-size: 14px;
+       }
       .overview_line{
         width: 1px;
         height: 40px;
@@ -591,14 +614,12 @@ const Home = () => {
         margin: 3px;
       }
       .Overview_top_heading{
-        width: fit-content;
-        font-size: 2rem;
-        font-weight: 900;
-        padding: 0px 10px;
-        background-color: black;
+        font-size: 1.8rem;
+        font-weight: 400;
+        padding: 0px 20px;
+        background-color: green;
         color: white;
         text-align: center;
-        margin: 5px 0px;
       }
       .Overview_line_container{
         display: flex;
@@ -612,12 +633,134 @@ const Home = () => {
         background-color: rgb(200, 194, 194);
         margin: 10px 0px;
       }
-      .overview_main_conatiner{
+      .overview_main_conatiner {
         display: flex;
         flex-wrap: wrap;
-        gap: 20px;
+        gap: 5px;
         background-color: white;
-        padding: 15px;
+        padding: 2px;
+        margin: 10px 0px;
+      }
+      .pros_real_data{
+        display: flex;
+        list-style: none;
+      }
+      .buy{
+        width: 100%;
+        padding: 10px;
+        margin: 20px 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .buyContainer{
+        width: fit-content;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px;
+        padding: 10px 30px;
+        border: 2px solid rgb(48, 48, 48)ck;
+        box-shadow: 0px 0px 10px rgb(184, 182, 182);
+      }
+      .buyImg{
+        width: 100px;
+        margin: 0px 10px;
+      }
+      .buyDes{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0px 10px;
+      }
+      .buyp{
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-weight: 400;
+      }
+      .buyDesImg{
+        width: 80px;
+        margin: 15px 0px;
+      }
+      .buyBtn{
+        background-color: coral;
+        border: none;
+        border-radius: 10px;
+        padding: 5px 10px;
+      }
+      .buyBtn a{
+        text-decoration: none;
+        color: white;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 600;
+      }
+      
+      .topMobiles {
+        width: 100%;
+      }
+      
+      .topMobilesHeading {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+      
+      .topMobilesContainer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+      }
+      .mobilesMains{
+        display: flex;
+        gap: 20px;
+      }
+      
+      .mobileCard {
+        flex: 1 0 500px;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 10px;
+        border: 2px solid rgb(48, 48, 48)ck;
+        box-shadow: 0px 0px 10px rgb(184, 182, 182);
+      }
+      
+      .mobileImage img {
+        width: 200px;
+        border-radius: 8px;
+      }
+      
+      .keyPoints {
+        margin-top: 10px;
+      }
+      
+      .keyPoints h4 {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+      
+      .keyPoints ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .keyPoints li {
+        margin-bottom: 5px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 5px;
+      }
+      .mobile_points{
+        font-family:'Times New Roman', Times, serif;
+        font-weight: 400;
+        font-size: 1.1rem;
+      }
+      .mobiles_svg{
+        color: blue;
       }
 
           @media screen and (max-width : 1000px) {
@@ -646,9 +789,6 @@ const Home = () => {
                 margin: 0px !important;
                 padding: 10px;
               }
-              .top_container{
-                  width: 100%;
-                }
                 .overview_img_container{
                   width: 10rem;
                   padding: 0.5rem;
@@ -682,20 +822,93 @@ const Home = () => {
                   gap: 5px;
                   padding: 5px;
                 }
+                .feature-table{
+                  min-width: 95vw;
+                  max-width : fit-content;
+              }
+              .top_container{
+                  width: 100%;
+                }
+               
+                .overview_img_container{
+                  width: 10rem;
+                  padding: 0.5rem;
+                }
+                .Overview_container{
+                  width: 60%;
+                }
+                .overview_middle_container{
+                  padding: 0px;
+                }
+                .pros{
+                  flex-direction: column;
+                  width: 90%;
+                  gap: 0px;
+                }
+                .pros_values , .cons_values{
+                  padding: 5px;
+                  margin: 10px;
+                }
+                .overview_icons{
+                  font-size: 1.5rem;
+                  margin: 5px 5px 0px 5px;
+                 }
+                 .overview_line{
+                  margin: 0px 10px;
+                }
+                .overview_name{
+                  font-size: 12px;
+                }
+                .overview_description{
+                  font-size: 13px;
+                }
+                .overview_bottom_line{
+                  margin: 3px 0px;
+                }
+                .buyContainer{
+                  margin: 0px;
+                  padding: 5px;
+                }
+                .buyDes{
+                  margin: 0px;
+                }
+                .mobileCard {
+                  flex: 1 0 350px;
+                  padding: 10px;
+                }
+                .mobileImage img {
+                  width: 150px;
+                  border-radius: 8px;
+                }
+                .mobilesMains{
+                  gap: 10px;
+                }
                           }
+                @media screen and (max-width: 1000px)
+                {
+                .overview_img_container {
+                    width: 10rem;
+                    /* padding: 0.5rem; */
+                }
+                .overview_img_container {
+                    width: 20rem;
+                    padding: 0.2rem;}
+                }
         </style>
       </head>
       <body>
     <div class='top_container'>
       <div class="overview_top_container">
           <div class="overview_img_container">
-              <img class='overview_left_img' src=${featuresContext.overviewData.image} alt="Mobile picture" />
+              <img class='overview_left_img' src=${featuresContext.overviewData.image.link} alt=${featuresContext.overviewData.image.alt} title=${featuresContext.overviewData.image.title} />
           </div>
             ${overviewHtml}
       </div>
             ${detailsHtml}
             ${featuresHtml}
             ${prosHtml}
+            ${buyHtml}
+            ${mobilesHtml}
    </div>
         <!-- Add any other custom HTML content here -->
       </body>
@@ -737,6 +950,16 @@ const Home = () => {
         <Pros />
       </FeaturesContext.Provider>
     );
+    const buyHtml = ReactDOMServer.renderToString(
+      <FeaturesContext.Provider value={featuresContext}>
+        <Buy />
+      </FeaturesContext.Provider>
+    );
+    const mobilesHtml = ReactDOMServer.renderToString(
+      <FeaturesContext.Provider value={featuresContext}>
+        <TopMobiles />
+      </FeaturesContext.Provider>
+    );
 
     // Combine the HTML content of the components
     const fullHtml = `
@@ -749,7 +972,7 @@ const Home = () => {
     <div class='top_container'>
       <div class="overview_top_container">
           <div class="overview_img_container">
-              <img class='overview_left_img' src=${featuresContext.overviewData.image} alt="Mobile picture" />
+              <img class='overview_left_img' src=${featuresContext.overviewData.image.link} alt=${featuresContext.overviewData.image.alt} title=${featuresContext.overviewData.image.title} />
           </div>
         
             ${overviewHtml}
@@ -757,6 +980,8 @@ const Home = () => {
             ${detailsHtml}
             ${featuresHtml}
             ${prosHtml}
+            ${buyHtml}
+            ${mobilesHtml}
     </div>
       </body>
     </html>
@@ -801,7 +1026,7 @@ const Home = () => {
     <div class='top_container'>
       <div class="overview_top_container">
           <div class="overview_img_container">
-              <img class='overview_left_img' src=${featuresContext.overviewData.image} alt="Mobile picture" />
+              <img class='overview_left_img' src=${featuresContext.overviewData.image.link} alt=${featuresContext.overviewData.image.alt} title=${featuresContext.overviewData.image.title} />
           </div>
             ${overviewHtml}
       </div>
@@ -932,12 +1157,83 @@ const Home = () => {
       }, 3000);
   }
 
+  const copyBuyHtml = (e) =>{
+    const buyHtml = ReactDOMServer.renderToString(
+      <FeaturesContext.Provider value={featuresContext}>
+        <Buy />
+      </FeaturesContext.Provider>
+    );
+
+    const fullHtml = `
+    <html>
+      <head>
+        <title>Generated HTML</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      </head>
+      <body>
+    <div class='top_container'>
+            ${buyHtml}
+      </div>
+      </body>
+    </html>
+  `;
+  const tempTextArea = document.createElement('textarea');
+  tempTextArea.value = fullHtml;
+  document.body.appendChild(tempTextArea);
+
+  // Copy the content from the textarea to the clipboard
+  tempTextArea.select();
+  document.execCommand('copy');
+
+  // Remove the temporary textarea element
+  document.body.removeChild(tempTextArea);
+  e.target.innerHTML = "Done";
+      setTimeout(() => {
+        e.target.innerHTML = "Copy Html";
+      }, 3000);
+  }
+  const copyMobilesHtml = (e) =>{
+    const mobilesHtml = ReactDOMServer.renderToString(
+      <FeaturesContext.Provider value={featuresContext}>
+        <TopMobiles />
+      </FeaturesContext.Provider>
+    );
+
+    const fullHtml = `
+    <html>
+      <head>
+        <title>Generated HTML</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      </head>
+      <body>
+    <div class='top_container'>
+            ${mobilesHtml}
+      </div>
+      </body>
+    </html>
+  `;
+  const tempTextArea = document.createElement('textarea');
+  tempTextArea.value = fullHtml;
+  document.body.appendChild(tempTextArea);
+
+  // Copy the content from the textarea to the clipboard
+  tempTextArea.select();
+  document.execCommand('copy');
+
+  // Remove the temporary textarea element
+  document.body.removeChild(tempTextArea);
+  e.target.innerHTML = "Done";
+      setTimeout(() => {
+        e.target.innerHTML = "Copy Html";
+      }, 3000);
+  }
+
   return (
     <>
       <div className='top_container'>
         <div className="overview_top_container">
             <div className="overview_img_container">
-                <img className='overview_left_img' src={featuresContext.overviewData.image} alt="Mobile picture" />
+                <img className='overview_left_img' src={featuresContext.overviewData.image.link} alt={featuresContext.overviewData.image.alt} title={featuresContext.overviewData.image.title} />
             </div>
             <Overview/>
         </div>
@@ -972,7 +1268,6 @@ const Home = () => {
 
 
           <Pros/>
-         
           <div className="flex  justify-center items-center">
             <div className="edits flex justify-center items-center my-2">
               <button onClick={editPros} id='editFeatures' className='px-10 py-2 text-lg text-white font-bold bg-yellow-400 rounded-2xl mx-10 '>Edit</button>
@@ -982,10 +1277,34 @@ const Home = () => {
             </div>   
           </div>
 
+
+          <Buy/>
+          <div className="flex  justify-center items-center">
+            <div className="edits flex justify-center items-center my-2">
+              <button onClick={editBuy} id='editFeatures' className='px-10 py-2 text-lg text-white font-bold bg-yellow-400 rounded-2xl mx-10 '>Edit</button>
+            </div>
+            <div className="edits flex justify-center items-center my-2">
+              <button onClick={copyBuyHtml} id='editOverview' className='px-10 py-2 text-lg text-white font-bold bg-blue-400 rounded-2xl mx-10 '>Copy html</button>
+            </div>   
+          </div>
+
+
+          <TopMobiles/>
+          <div className="flex  justify-center items-center">
+            <div className="edits flex justify-center items-center my-2">
+              <button onClick={editMobiles} id='editFeatures' className='px-10 py-2 text-lg text-white font-bold bg-yellow-400 rounded-2xl mx-10 '>Edit</button>
+            </div>
+            <div className="edits flex justify-center items-center my-2">
+              <button onClick={copyMobilesHtml} id='editOverview' className='px-10 py-2 text-lg text-white font-bold bg-blue-400 rounded-2xl mx-10 '>Copy html</button>
+            </div>   
+          </div>
+
         { overviewModel && <OverviewModel setOverviewModel={setOverviewModel}  />}
         { detailsModel && <DetailsModel setDetailsModel={setDetailsModel}  />}
         { featuresModel && <FeaturesModel setFeaturesModel={setFeaturesModel}  />}
         { prosModel && <ProsModel setProsModel={setProsModel}  />}
+        { buyModel && <BuyModel setBuyModel={setBuyModel}  />}
+        { mobilesModel && <TopMobilesModel setMobileModel={setMobileModel}  />}
       </div>
 
       {/* generate html  */}
