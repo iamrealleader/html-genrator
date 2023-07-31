@@ -170,6 +170,7 @@
 
 .pros_real_data{
   display: flex;
+  align-items: center;
   list-style: none;
 }
 
@@ -183,12 +184,12 @@
   flex-wrap: wrap;
 }
 .buyContainer{
-  width: fit-content;
+  width: 800px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 10px;
-  padding: 10px 30px;
+  padding: 20px 30px;
   border: 2px solid rgb(48, 48, 48)ck;
   box-shadow: 0px 0px 10px rgb(184, 182, 182);
 }
@@ -203,6 +204,7 @@
   justify-content: center;
   margin: 0px 10px;
 }
+
 .buyp{
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-weight: 400;
@@ -217,7 +219,7 @@
   border-radius: 5px;
 }
 
-.buyBtn a{
+.buyBtn .buy_link{
   display: block;
   text-decoration: none;
   color: coral;
@@ -226,7 +228,7 @@
   padding: 3px 10px;
 
 }
-button a:hover{
+.buyBtn .buy_link:hover{
   background-color: coral;
   color: white;
 }
@@ -323,8 +325,7 @@ button a:hover{
 
 @media Screen and (max-width : 750px) {
     .feature-table{
-        min-width: 95vw;
-        max-width : fit-content;
+        width: 100%;
     }
     .top_container{
         width: 100%;
@@ -372,12 +373,6 @@ button a:hover{
       .overview_bottom_line{
         margin: 3px 0px;
       }
-      .buyContainer{
-        width: 100%;
-        justify-content: start;
-        margin: 5px;
-        padding: 5px;
-      }
       .buyDes{
         margin: 0px;
       }
@@ -401,8 +396,13 @@ button a:hover{
         width: 60px;
         margin: 5px 0px;
        }
+       .buyContainer{
+        width:400px;
+        padding: 10px 10px;
+      }
 
 }
+
 
 
 

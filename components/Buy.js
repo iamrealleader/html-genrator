@@ -12,7 +12,7 @@ const Buy = () => {
                     <p className="buyp">{data.desc}</p>
                     <div className="buy_inner_container">
                         <img src={data.StoreImage} alt="buy image" className="buyDesImg" />
-                        <button className="buyBtn"><a href={data.link} target="_blank" rel="noopener noreferrer">Check Price</a></button>
+                        <button className="buyBtn"><a className='buy_link' href={data.link} target="_blank" rel="noopener noreferrer">Check Price</a></button>
                      </div>
                 </div>
             </div>

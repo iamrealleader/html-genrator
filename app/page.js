@@ -641,6 +641,7 @@ const Home = () => {
       }
       .pros_real_data{
         display: flex;
+        align-items: center;
         list-style: none;
       }
       .buy{
@@ -651,13 +652,13 @@ const Home = () => {
         align-items: center;
         flex-wrap: wrap;
       }
-      .buyContainer{
-        width: fit-content;
+      .buyContainer {
+        width: 600px;
         display: flex;
         justify-content: center;
         align-items: center;
         margin: 10px;
-        padding: 10px 30px;
+        padding: 0px 0px;
         border: 2px solid rgb(48, 48, 48)ck;
         box-shadow: 0px 0px 10px rgb(184, 182, 182);
       }
@@ -665,16 +666,14 @@ const Home = () => {
         width: 100px;
         margin: 0px 10px;
       }
-      .buyDes{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+      .buyDes {
+        width: 500px;
+        height: 130px;
         margin: 0px 10px;
       }
-      .buyp{
+      .buyp {
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        font-weight: 400;
+        font-weight: 700;
       }
       .buyDesImg{
         width: 80px;
@@ -686,16 +685,16 @@ const Home = () => {
         background-color: white;
         padding: 0px;
       }
-      .buyBtn a {
+      .buyBtn .buy_link{
         display: block;
         text-decoration: none;
         color: coral;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        font-weight: 700;
-        font-size: 16px;
-        padding: 5px 12px;
+        font-weight: 500;
+        padding: 3px 10px;
+      
       }
-      button a:hover{
+      .buyBtn .buy_link:hover{
         background-color: coral;
         color: white;
       }
@@ -787,10 +786,6 @@ const Home = () => {
           }
 
           @media screen and (max-width : 1000px) {
-              .feature-table{
-                  min-width: 95%;
-                  max-width : fit-content;
-              }
               .overview-img-top{
                 flex-direction: column;
               }
@@ -841,10 +836,6 @@ const Home = () => {
                   gap: 5px;
                   padding: 5px;
                 }
-                .feature-table{
-                  min-width: 95vw;
-                  max-width : fit-content;
-              }
               .top_container{
                   width: 100%;
                 }
@@ -884,12 +875,6 @@ const Home = () => {
                 .overview_bottom_line{
                   margin: 3px 0px;
                 }
-                .buyContainer{
-                  width: 100%;
-                  justify-content: start;
-                  margin: 5px;
-                  padding: 5px;
-                }
                 .buyDes{
                   margin: 0px;
                 }
@@ -912,6 +897,10 @@ const Home = () => {
                   width: 60px;
                   margin: 5px 0px;
                  }
+                 .buyContainer{
+                  width:400px;
+                  padding: 10px 10px;
+                }
                           }
         </style>
       </head>
@@ -1202,6 +1191,10 @@ const Home = () => {
   return (
     <>
       <div className='top_container'>
+        <div className="navigator_links m-5 flex justify-center items-center shadow-lg py-2">
+          <a className='mx-2 font-bold ' href="/">Home</a>
+          <a className='mx-2 font-bold ' href="/compared">Compared</a>
+        </div>
         <div className="overview_top_container">
             <div className="overview_img_container">
                 <img className='overview_left_img' src={featuresContext.overviewData.image.link} alt={featuresContext.overviewData.image.alt} title={featuresContext.overviewData.image.title} />

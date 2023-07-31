@@ -266,5 +266,105 @@ const MobilesData = {
 ]
 }
 
-
+const ComparedData = [
+  {
+    name : "Mobile name",
+    features : [
+          {
+              name : "General",
+              description : "It is just descritpion",
+              rows : {
+                  "Brand" : "Lava",                                
+                  "Model" : "Agni 2 5G",                                  
+                  "Price in India" : "₹21,999",                                  
+                  "Release date" : "16th May 2023",                                
+                  "Launched in India" : "Yes",                             
+                  "Form factor" : "Touchscreen",                               
+                  "Body type" : "Glass",                                
+                  "Battery capacity (mAh)" : "4700",                                
+                  "Removable battery" : "No",                                
+                  "Fast charging" : "66W Fast Charging",                                
+                  "Wireless charging" : "No",                                
+                  "Colours" : "Viridian"
+                  }
+          },
+          {
+              name : "Display",
+              description : "It is just descritpion",
+              rows : {
+                  "Refresh Rate" :"120 Hz",      
+                  "Resolution Standard" :"FHD+", 
+                  "Screen size (inches)" :"6.78",
+                  "Touchscreen" :"Yes",          
+                  "Resolution" :"2220x2080 pixels"
+                }
+          },
+          {
+              name : "Harware",
+              description : "",
+              rows : {
+                  "Processor" :"octa-core",                   
+                  "Processor make" :"MediaTek Dimensity 7050",                   
+                  "RAM" :"8GB",                   
+                  "Internal storage" :"256GB"
+              }
+          },
+          {
+              name : "Camera",
+              description : "",
+              rows : {
+                  "Rear camera" : "50-megapixel",
+                  "No. of Rear Cameras" : "4",
+                  "Front camera" : "Unspecified",
+                  "No. of Front Cameras" : "1"
+              }
+          }
+        ]
+    },
+  {
+    name : "Mobile name",
+    features : [
+          {
+              name : "General",
+              description : "It is just descritpion",
+              rows : {
+                  "Brand" : "Lava",                                
+                  "Model" : "Agni 2 5G",                                  
+                  "Price in India" : "₹21,999",                                  
+                  "Release date" : "16th May 2023",                                
+                  "Launched in India" : "Yes",                             
+                  "Form factor" : "Touchscreen",                               
+                  "Body type" : "Glass",                                
+                  "Battery capacity (mAh)" : "4700",                                
+                  "Removable battery" : "No",                                
+                  "Fast charging" : "66W Fast Charging",                                
+                  "Wireless charging" : "No",                                
+                  "Colours" : "Viridian"
+                  }
+          },
+          {
+              name : "Display",
+              description : "It is just descritpion",
+              rows : {
+                  "Refresh Rate" :"120 Hz",      
+                  "Resolution Standard" :"FHD+", 
+                  "Screen size (inches)" :"6.78",
+                  "Touchscreen" :"Yes",          
+                  "Resolution" :"2220x2080 pixels"
+                }
+          },
+          {
+              name : "Harware",
+              description : "",
+              rows : {
+                  "Processor" :"octa-core",                   
+                  "Processor make" :"MediaTek Dimensity 7050",                   
+                  "RAM" :"8GB",                   
+                  "Internal storage" :"256GB"
+              }
+          }, 
+        ]
+    }
+   
+  ]
 
