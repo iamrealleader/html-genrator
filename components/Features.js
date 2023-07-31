@@ -7,7 +7,7 @@ const Features = () => {
   const { myfeatures } = useContext(FeaturesContext);
   return (
     <div id='features' className='tool-overview m-1'>
-      <h1 className='text-3xl font-bold '>Features</h1>
+      <h2 className='text-3xl font-bold '>Features</h2>
       { myfeatures.map((feature, index) => (
         <div id={feature.name} className="feature-table bg-slate-100 py-3 my-5 px-3 md:px-10 rounded-2xl" key={index}>
           <p className='feature_p'>{feature.description}</p>

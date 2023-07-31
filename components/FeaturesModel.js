@@ -139,7 +139,7 @@ const FeaturesModel = ({ setFeaturesModel }) => {
   };
 
   return (
-    <div className="model bg-slate-100 h-full w-full py-10 fixed top-0 backdrop-blur-3xl overflow-y-scroll">
+    <div id='features' className="model bg-slate-100 h-full w-full py-10 fixed top-0 backdrop-blur-3xl overflow-y-scroll">
       <div className="w-full flex flex-col rounded-2xl p-10">
       <h1 className='text-3xl font-bold mx-5'>Features</h1>
         {featureData.map((feature, featureIndex) => (

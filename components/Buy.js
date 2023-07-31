@@ -10,9 +10,11 @@ const Buy = () => {
                 <img className='buyImg' src={data.image} alt="mobile picture" />
                 <div className="buyDes">
                     <p className="buyp">{data.desc}</p>
-                    <img src={data.StoreImage} alt="buy image" className="buyDesImg" />
+                    <div className="buy_inner_container">
+                        <img src={data.StoreImage} alt="buy image" className="buyDesImg" />
+                        <button className="buyBtn"><a href={data.link} target="_blank" rel="noopener noreferrer">Check Price</a></button>
+                     </div>
                 </div>
-                <button className="buyBtn"><a href={data.link} target="_blank" rel="noopener noreferrer">Check Price</a></button>
             </div>
         ))}
     </div>

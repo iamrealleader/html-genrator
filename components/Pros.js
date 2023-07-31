@@ -30,11 +30,11 @@ const Pros = () => {
   return (
     <div className="pros" id="pros">
       <div className="pros_values">
-        <h1 className="pros_h1">Pros</h1>
+        <h3 className="pros_h1">Pros</h3>
         {pros && renderListItems(pros)}
       </div>
       <div className="cons_values">
-        <h1 className="cons_h1">Cons</h1>
+        <h3 className="cons_h1">Cons</h3>
         {cons && renderListItems(cons)}
       </div>
     </div>

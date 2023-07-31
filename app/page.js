@@ -504,8 +504,6 @@ const Home = () => {
           display: flex;
           justify-content: center;
           border-bottom: 2px dotted rgb(202, 199, 199);
-          margin: 5px;
-          padding: 10px;
         }
         .overview_img_container{
           width: 20rem;
@@ -647,7 +645,6 @@ const Home = () => {
       }
       .buy{
         width: 100%;
-        padding: 10px;
         margin: 20px 0px;
         display: flex;
         justify-content: center;
@@ -669,6 +666,7 @@ const Home = () => {
         margin: 0px 10px;
       }
       .buyDes{
+        width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -683,16 +681,23 @@ const Home = () => {
         margin: 15px 0px;
       }
       .buyBtn{
-        background-color: coral;
-        border: none;
-        border-radius: 10px;
-        padding: 5px 10px;
+        border: 2px solid coral;
+        border-radius: 5px;
+        background-color: white;
+        padding: 0px;
       }
-      .buyBtn a{
+      .buyBtn a {
+        display: block;
         text-decoration: none;
+        color: coral;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 700;
+        font-size: 16px;
+        padding: 5px 12px;
+      }
+      button a:hover{
+        background-color: coral;
         color: white;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-weight: 600;
       }
       
       .topMobiles {
@@ -762,6 +767,24 @@ const Home = () => {
       .mobiles_svg{
         color: blue;
       }
+      .buy_inner_container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap : 10px;
+        margin: 5px 0px;
+      }
+          @media screen and (max-width: 1000px)
+          {
+          .overview_img_container {
+              width: 10rem;
+              /* padding: 0.5rem; */
+          }
+          .overview_img_container {
+              width: 20rem;
+              padding: 0.2rem;
+            }
+          }
 
           @media screen and (max-width : 1000px) {
               .feature-table{
@@ -789,10 +812,6 @@ const Home = () => {
                 margin: 0px !important;
                 padding: 10px;
               }
-                .overview_img_container{
-                  width: 10rem;
-                  padding: 0.5rem;
-                }
                 .Overview_container{
                   width: 60%;
                 }
@@ -831,8 +850,8 @@ const Home = () => {
                 }
                
                 .overview_img_container{
-                  width: 10rem;
-                  padding: 0.5rem;
+                  width: 8rem;
+                  padding: 0rem;
                 }
                 .Overview_container{
                   width: 60%;
@@ -866,7 +885,9 @@ const Home = () => {
                   margin: 3px 0px;
                 }
                 .buyContainer{
-                  margin: 0px;
+                  width: 100%;
+                  justify-content: start;
+                  margin: 5px;
                   padding: 5px;
                 }
                 .buyDes{
@@ -883,24 +904,22 @@ const Home = () => {
                 .mobilesMains{
                   gap: 10px;
                 }
+                .buyImg{
+                  width:60px;
+                  margin: 0px 5px;
+                }
+                .buyDesImg {
+                  width: 60px;
+                  margin: 5px 0px;
+                 }
                           }
-                @media screen and (max-width: 1000px)
-                {
-                .overview_img_container {
-                    width: 10rem;
-                    /* padding: 0.5rem; */
-                }
-                .overview_img_container {
-                    width: 20rem;
-                    padding: 0.2rem;}
-                }
         </style>
       </head>
       <body>
     <div class='top_container'>
       <div class="overview_top_container">
           <div class="overview_img_container">
-              <img class='overview_left_img' src=${featuresContext.overviewData.image.link} alt=${featuresContext.overviewData.image.alt} title=${featuresContext.overviewData.image.title} />
+              <img class='overview_left_img' src="${featuresContext.overviewData.image.link}" alt="${featuresContext.overviewData.image.alt}" title="${featuresContext.overviewData.image.title}" />
           </div>
             ${overviewHtml}
       </div>
@@ -972,7 +991,7 @@ const Home = () => {
     <div class='top_container'>
       <div class="overview_top_container">
           <div class="overview_img_container">
-              <img class='overview_left_img' src=${featuresContext.overviewData.image.link} alt=${featuresContext.overviewData.image.alt} title=${featuresContext.overviewData.image.title} />
+          <img class='overview_left_img' src="${featuresContext.overviewData.image.link}" alt="${featuresContext.overviewData.image.alt}" title="${featuresContext.overviewData.image.title}" />
           </div>
         
             ${overviewHtml}
@@ -1017,22 +1036,14 @@ const Home = () => {
 
     // Combine the HTML content of the components
     const fullHtml = `
-    <html>
-      <head>
-        <title>Generated HTML</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      </head>
-      <body>
     <div class='top_container'>
       <div class="overview_top_container">
           <div class="overview_img_container">
-              <img class='overview_left_img' src=${featuresContext.overviewData.image.link} alt=${featuresContext.overviewData.image.alt} title=${featuresContext.overviewData.image.title} />
+           <img class='overview_left_img' src="${featuresContext.overviewData.image.link}" alt="${featuresContext.overviewData.image.alt}" title="${featuresContext.overviewData.image.title}" />
           </div>
             ${overviewHtml}
       </div>
     </div>
-      </body>
-    </html>
   `;
 
   const tempTextArea = document.createElement('textarea');
@@ -1059,17 +1070,9 @@ const Home = () => {
     );
     
     const fullHtml = `
-    <html>
-      <head>
-        <title>Generated HTML</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      </head>
-      <body>
     <div class='top_container'>
             ${detailsHtml}
-      </div>
-      </body>
-    </html>
+    </div>
   `;
   const tempTextArea = document.createElement('textarea');
   tempTextArea.value = fullHtml;
@@ -1093,17 +1096,9 @@ const Home = () => {
       </FeaturesContext.Provider>
     );
     const fullHtml = `
-    <html>
-      <head>
-        <title>Generated HTML</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      </head>
-      <body>
     <div class='top_container'>
             ${featuresHtml}
-      </div>
-      </body>
-    </html>
+    </div>
   `;
   const tempTextArea = document.createElement('textarea');
   tempTextArea.value = fullHtml;
@@ -1129,17 +1124,9 @@ const Home = () => {
     );
 
     const fullHtml = `
-    <html>
-      <head>
-        <title>Generated HTML</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      </head>
-      <body>
     <div class='top_container'>
             ${prosHtml}
-      </div>
-      </body>
-    </html>
+    </div>
   `;
   const tempTextArea = document.createElement('textarea');
   tempTextArea.value = fullHtml;
@@ -1165,17 +1152,9 @@ const Home = () => {
     );
 
     const fullHtml = `
-    <html>
-      <head>
-        <title>Generated HTML</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      </head>
-      <body>
     <div class='top_container'>
             ${buyHtml}
-      </div>
-      </body>
-    </html>
+    </div>
   `;
   const tempTextArea = document.createElement('textarea');
   tempTextArea.value = fullHtml;
@@ -1200,17 +1179,9 @@ const Home = () => {
     );
 
     const fullHtml = `
-    <html>
-      <head>
-        <title>Generated HTML</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      </head>
-      <body>
     <div class='top_container'>
             ${mobilesHtml}
-      </div>
-      </body>
-    </html>
+    </div>
   `;
   const tempTextArea = document.createElement('textarea');
   tempTextArea.value = fullHtml;
