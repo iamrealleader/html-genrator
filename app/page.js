@@ -1191,10 +1191,6 @@ const Home = () => {
   return (
     <>
       <div className='top_container'>
-        <div className="navigator_links m-5 flex justify-center items-center shadow-lg py-2">
-          <a className='mx-2 font-bold ' href="/">Home</a>
-          <a className='mx-2 font-bold ' href="/compared">Compared</a>
-        </div>
         <div className="overview_top_container">
             <div className="overview_img_container">
                 <img className='overview_left_img' src={featuresContext.overviewData.image.link} alt={featuresContext.overviewData.image.alt} title={featuresContext.overviewData.image.title} />
