@@ -11,9 +11,10 @@ const FeaturesProvider = ({ children }) => {
     const [cons , setCons] = useState(consData);
     const [buy , setBuy] = useState(buyData);
     const [mobiles , setMobiles] = useState(MobilesData);
+    const [compared , setCompared] = useState(MobilesData);
 
   return (
-    <FeaturesContext.Provider value={{ overviewData, setOverviewData , detailsData , setDetailsData , myfeatures , setMyFeatures , pros , setPros , cons , setCons , buy , setBuy , mobiles , setMobiles }}>
+    <FeaturesContext.Provider value={{ overviewData, setOverviewData , detailsData , setDetailsData , myfeatures , setMyFeatures , pros , setPros , cons , setCons , buy , setBuy , mobiles , setMobiles , compared , setCompared }}>
       {children}
     </FeaturesContext.Provider>
   );
